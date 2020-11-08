@@ -1,3 +1,30 @@
-body {
-  background-color: aqua;
+#resultList {
+  list-style-type: none;
+}
+#myInput {
+  width: 400px;
+}
+#resultList > li {
+  color: blue;
+  border-bottom: 0.3px grey solid;
+  margin: 3px 0;
+  padding: 5px 0;
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#loader {
+  animation: spin linear 1s infinite;
 }
