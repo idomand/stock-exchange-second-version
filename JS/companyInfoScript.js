@@ -41,7 +41,7 @@ const appendResults = (object) => {
   toggleView(stockPriceLine, "show");
   stockPrice.innerHTML = `${object.price} $`;
   stockPrice.classList.add("stockPrice");
-  stockPriceChange.innerHTML = `${object.changes} $`;
+  stockPriceChange.innerHTML = `${object.changes} %`;
   companyDescription.innerHTML = object.description;
   let logoImg = document.createElement("img");
   logoImg.setAttribute("src", object.image);

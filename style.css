@@ -61,3 +61,20 @@ h3 {
 .negative {
   background-color: red;
 }
+
+li > img {
+  width: 50px;
+  margin-right: 15px;
+}
+
+li {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+li > div {
+  margin-left: 5px;
+  border-radius: 10px;
+  padding: 5px;
+}
