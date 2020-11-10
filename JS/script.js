@@ -14,12 +14,6 @@ const [
   companyInfoDiv,
 ] = idNames.map((element) => document.getElementById(element));
 
-const baseUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com`;
-let userSearchInput = "";
-let searchUrl = `/api/v3/search?query=${userSearchInput}&limit=10&exchange=NASDAQ`;
-
-//https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=aa&limit=10&exchange=NASDAQ
-
 myButton.addEventListener("click", (e) => {
   e.preventDefault();
   freshStart();
@@ -28,13 +22,9 @@ myButton.addEventListener("click", (e) => {
 });
 
 const findCompanies = async (searchInput) => {
-  console.log("searchInput", searchInput);
-  userSearchInput = searchInput;
-  console.log("userSearchInput", userSearchInput);
-  let foo = `${baseUrl}${searchUrl}`;
-  console.log("foo", foo);
+  let searchUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${searchInput}&limit=10&exchange=NASDAQ`;
   toggleView(loader, "show");
-  const results = await fetchFunc(foo);
+  const results = await fetchFunc(searchUrl);
   showCompanies(results);
 };
 
