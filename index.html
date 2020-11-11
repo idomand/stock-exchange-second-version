@@ -16,16 +16,21 @@
     <div class="container">
       <div class="row red">
         <div class="m-5 p-5 blue shadow-lg my-page-wrapper">
-            <h3>Stock Exchange Search Engine</h3>
+          <h3>Stock Exchange Search Engine</h3>
           <div class="mt-5 black d-flex">
             <input id="myInput" type="text" class="red" />
             <button type="submit" id="myButton">search</button>
           </div>
-          <div  class=" blue">
-              <div class=" mt-4 align-self-center red" ><img id="loader" class="hide" src="./img/loading.png" alt="loader"></div>
-              <ul id="resultList" class="yellow p-0">
-
-              </ul>
+          <div class="blue">
+            <div class="mt-4 align-self-center red">
+              <img
+                id="loader"
+                class="hide"
+                src="./img/loading.png"
+                alt="loader"
+              />
+            </div>
+            <ul id="resultList" class="yellow p-0"></ul>
           </div>
         </div>
       </div>
@@ -46,6 +51,7 @@
       integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
       crossorigin="anonymous"
     ></script>
-    <script src="./JS/script.js"></script>
+    <script type="module" src="./JS/sharedFunctions.js"></script>
+    <script type="module" src="./JS/script.js"></script>
   </body>
 </html>

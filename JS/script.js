@@ -1,18 +1,14 @@
-const idNames = [
-  "myButton",
-  "myInput",
-  "resultList",
-  "loader",
-  "companyInfoDiv",
-];
+import {
+  toggleView,
+  fetchCompanyInfo,
+  checkPriceChange,
+} from "./sharedFunctions.js";
 
-const [
-  myButton,
-  myInput,
-  resultList,
-  loader,
-  companyInfoDiv,
-] = idNames.map((element) => document.getElementById(element));
+const idNames = ["myButton", "myInput", "resultList", "loader"];
+
+const [myButton, myInput, resultList, loader] = idNames.map((element) =>
+  document.getElementById(element)
+);
 
 myButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -43,52 +39,22 @@ const showCompanies = async (array) => {
     newATag.setAttribute("href", `../company.html?symbol=${element.symbol}`);
     newATag.setAttribute("target", "_blank");
     newATag.innerHTML = `${element.name} (${element.symbol})`;
-    let newInfo = await getMoreInfo(element.symbol);
-    // console.log("newInfo", newInfo);
+    let newInfo = await fetchCompanyInfo(element.symbol);
     const logo = document.createElement("img");
     newLi.appendChild(logo);
     newLi.appendChild(newATag);
-    console.log("newInfo.image", newInfo.image);
     if (newInfo.image) {
       logo.setAttribute("src", newInfo.image);
     }
-    // else {
-    //   logo.setAttribute("src", `<img src="http://placecorgi.com/50/50"/>`);
-    // }
+
     const PriceChange = document.createElement("div");
     PriceChange.innerHTML = `${newInfo.changes}%`;
 
-    if (newInfo.changes > 0) {
-      PriceChange.classList.add("positive");
-    } else if (newInfo.changes < 0) {
-      PriceChange.classList.add("negative");
-    } else {
-      PriceChange.innerHTML = "";
-    }
-
+    checkPriceChange(newInfo.changes, PriceChange);
     newLi.appendChild(PriceChange);
   });
 };
 
-const getMoreInfo = async (symbol) => {
-  let response = await fetch(
-    `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${symbol}`
-  );
-  let responseJson = await response.json();
-  // console.log("responseJson", responseJson.profile);
-  return responseJson.profile;
-};
-
 const freshStart = () => {
   resultList.innerHTML = "";
-};
-
-const toggleView = (element, order) => {
-  if (order === "show") {
-    element.classList.add("show");
-    element.classList.remove("hide");
-  } else if (order === "hide") {
-    element.classList.add("hide");
-    element.classList.remove("show");
-  }
 };

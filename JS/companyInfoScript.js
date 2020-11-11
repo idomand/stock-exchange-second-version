@@ -1,3 +1,9 @@
+import {
+  toggleView,
+  fetchCompanyInfo,
+  checkPriceChange,
+} from "./sharedFunctions.js";
+
 const idNames = [
   "companyInfoDiv",
   "companyLogo",
@@ -21,19 +27,12 @@ let url = window.location.href;
 let index = url.indexOf("=");
 let symbol = url.slice(index + 1);
 
-const baseUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${symbol}`;
-
 const findCompanyInfo = async () => {
   toggleView(loader, "show");
-  let result = await fetchCompanyInfo(baseUrl);
-  await appendResults(result.profile);
+  let result = await fetchCompanyInfo(symbol);
+  await appendResults(result);
   await toggleView(loader, "hide");
   await appendChart(symbol);
-};
-const fetchCompanyInfo = async (url) => {
-  const response = await fetch(url);
-  const responseJson = await response.json();
-  return responseJson;
 };
 
 const appendResults = (object) => {
@@ -46,17 +45,9 @@ const appendResults = (object) => {
   let logoImg = document.createElement("img");
   logoImg.setAttribute("src", object.image);
   companyLogo.appendChild(logoImg);
-  checkPriceChange(object.changes);
+  checkPriceChange(object.changes, stockPriceChange);
 };
-const checkPriceChange = (number) => {
-  if (number > 0) {
-    stockPriceChange.classList.add("positive");
-  } else if (number < 0) {
-    stockPriceChange.classList.add("negative");
-  } else {
-    stockPriceChange.innerHTML = "";
-  }
-};
+
 const appendChart = async (symbol) => {
   let stockHistory = await fetch(
     `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/historical-price-full/${symbol}?serietype=line`
@@ -96,13 +87,4 @@ const createChart = (array) => {
   });
 };
 
-const toggleView = (element, order) => {
-  if (order === "show") {
-    element.classList.add("show");
-    element.classList.remove("hide");
-  } else if (order === "hide") {
-    element.classList.add("hide");
-    element.classList.remove("show");
-  }
-};
 findCompanyInfo();
