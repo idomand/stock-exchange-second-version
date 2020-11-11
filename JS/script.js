@@ -4,22 +4,22 @@ import {
   checkPriceChange,
 } from "./sharedFunctions.js";
 
-const idNames = ["myButton", "myInput", "resultList", "loader"];
+const idNames = ["myButton", "myInput", "resultList", "loader1"];
 
-const [myButton, myInput, resultList, loader] = idNames.map((element) =>
+const [myButton, myInput, resultList, loader1] = idNames.map((element) =>
   document.getElementById(element)
 );
 
 myButton.addEventListener("click", (e) => {
   e.preventDefault();
   freshStart();
-  toggleView(loader, "show");
+  toggleView(loader1, "show");
   findCompanies(myInput.value);
 });
 
 const findCompanies = async (searchInput) => {
   let searchUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${searchInput}&limit=10&exchange=NASDAQ`;
-  toggleView(loader, "show");
+  toggleView(loader1, "show");
   const results = await fetchFunc(searchUrl);
   showCompanies(results);
 };
@@ -31,7 +31,7 @@ const fetchFunc = async (url) => {
 };
 
 const showCompanies = async (array) => {
-  toggleView(loader, "hide");
+  toggleView(loader1, "hide");
   array.forEach(async (element) => {
     const newLi = document.createElement("li");
     const newATag = document.createElement("a");

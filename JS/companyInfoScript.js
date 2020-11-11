@@ -12,6 +12,8 @@ const idNames = [
   "stockPriceLine",
   "stockPriceChange",
   "companyDescription",
+  "loader1",
+  "loader2",
 ];
 
 const [
@@ -22,17 +24,21 @@ const [
   stockPriceLine,
   stockPriceChange,
   companyDescription,
+  loader1,
+  loader2,
 ] = idNames.map((element) => document.getElementById(element));
 let url = window.location.href;
 let index = url.indexOf("=");
 let symbol = url.slice(index + 1);
 
 const findCompanyInfo = async () => {
-  toggleView(loader, "show");
+  toggleView(loader1, "show");
+  toggleView(loader2, "show");
   let result = await fetchCompanyInfo(symbol);
   await appendResults(result);
-  await toggleView(loader, "hide");
+  await toggleView(loader1, "hide");
   await appendChart(symbol);
+  await toggleView(loader2, "hide");
 };
 
 const appendResults = (object) => {
