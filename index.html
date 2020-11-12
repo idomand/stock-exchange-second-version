@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stock Exchange</title>
-    <link rel="icon" type="image/png" sizes="16x16" href='./img/moneyBag/favicon.ico'>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./img/moneyBag/favicon.ico"
+    />
 
     <link
       rel="stylesheet"
@@ -19,6 +24,8 @@
       <div class="row red">
         <div id="marqueeDiv"></div>
         <div class="m-5 p-5 blue shadow-lg my-page-wrapper">
+          <div id="form"></div>
+          <div id="result"></div>
           <h3>Stock Exchange Search Engine</h3>
           <div class="mt-5 black d-flex">
             <input id="myInput" type="text" class="red" />
@@ -54,14 +61,19 @@
       integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="./JS/marquee.js">
-    </script>
+    <script type="module" src="./JS/marquee.js"></script>
     <script type="module" src="./JS/sharedFunctions.js"></script>
     <script type="module" src="./JS/script.js"></script>
-  <script type="module">
-    import Marquee from './JS/Marquee.js'
-    let myMarquee = new Marquee('marqueeDiv')
+    <script src="./JS/SearchREsult.js"></script>
+    <script src="./JS/SearchForm.js"></script>
 
-  </script>
+    
+    <script type="module">
+      import Marquee from "./JS/Marquee.js";
+
+      (async function () {
+        let myMarquee = new Marquee("marqueeDiv");
+      })();
+    </script>
   </body>
 </html>

@@ -27,6 +27,7 @@ const [
   loader1,
   loader2,
 ] = idNames.map((element) => document.getElementById(element));
+
 let url = window.location.href;
 let index = url.indexOf("=");
 let symbol = url.slice(index + 1);
