@@ -1,9 +1,4 @@
-import {
-  toggleView,
-  fetchCompanyInfo,
-  checkPriceChange,
-  giveAttributes,
-} from "./sharedFunctions.js";
+import { toggleView, giveAttributes } from "./sharedFunctions.js";
 
 export default class SearchForm {
   constructor(element) {
