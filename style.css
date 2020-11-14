@@ -1,10 +1,15 @@
-#resultList {
+#resultListDiv {
+  padding: 0;
   list-style-type: none;
 }
+
+/* #resultList {
+  list-style-type: none;
+} */
 #myInput {
   width: 400px;
 }
-#resultList > li {
+#resultListDiv > li {
   color: blue;
   border-bottom: 0.3px grey solid;
   margin: 3px 0;

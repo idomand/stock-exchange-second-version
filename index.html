@@ -22,16 +22,20 @@
   <body>
     <div class="container">
       <div class="row red">
+        <!--  -->
+        <!--  -->
         <div id="marqueeDiv"></div>
         <div class="m-5 p-5 blue shadow-lg my-page-wrapper">
-          <div id="form"></div>
-          <div id="result"></div>
-          <h3>Stock Exchange Search Engine</h3>
+          <div id="formDiv"></div>
+          <div id="resultDiv"></div>
+          <!--  -->
+          <!--  -->
+          <!-- <h3>Stock Exchange Search Engine</h3>
           <div class="mt-5 black d-flex">
-            <input id="myInput" type="text" class="red" />
+            <input id="myInput" type="text"/>
             <button type="submit" id="myButton">search</button>
           </div>
-          <div class="blue">
+          <div>
             <div class="mt-4 align-self-center red">
               <img
                 id="loader1"
@@ -41,7 +45,7 @@
               />
             </div>
             <ul id="resultList" class="yellow p-0"></ul>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -64,15 +68,21 @@
     <script type="module" src="./JS/marquee.js"></script>
     <script type="module" src="./JS/sharedFunctions.js"></script>
     <script type="module" src="./JS/script.js"></script>
-    <script src="./JS/SearchREsult.js"></script>
-    <script src="./JS/SearchForm.js"></script>
+    <script type="module" src="./JS/SearchREsult.js"></script>
+    <script type="module" src="./JS/SearchForm.js"></script>
 
-    
     <script type="module">
       import Marquee from "./JS/Marquee.js";
+      import SearchResult from "./JS/SearchResult.js";
+      import SearchForm from "./JS/SearchForm.js";
 
       (async function () {
-        let myMarquee = new Marquee("marqueeDiv");
+        const myMarquee = new Marquee("marqueeDiv");
+      const form = new SearchForm('formDiv')
+      const result = new SearchResult('resultDiv')
+      form.onSearch((companies)=>{
+        result.renderResults(companies)
+      })
       })();
     </script>
   </body>

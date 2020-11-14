@@ -25,3 +25,18 @@ export const checkPriceChange = (number, element) => {
     element.innerHTML = "";
   }
 };
+
+export const giveAttributes = function (element, id, cls, innerText, src) {
+  if (id) {
+    element.setAttribute("id", id);
+  }
+  if (cls) {
+    element.setAttribute("class", cls);
+  }
+  if (innerText) {
+    element.innerText = innerText;
+  }
+  if (src) {
+    element.setAttribute("src", src);
+  }
+};
