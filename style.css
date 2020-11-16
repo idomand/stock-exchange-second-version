@@ -63,19 +63,20 @@ h3 {
 }
 .positive {
   background-color: greenyellow;
+  justify-self: flex-end;
 }
 .negative {
   background-color: red;
 }
 
-li > img {
+li img {
   width: 50px;
   margin-right: 15px;
 }
 
 li {
   display: flex;
-  /* justify-content: center; */
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -136,4 +137,9 @@ li > div {
   border: white 1px solid;
   margin: 2px;
   background-color: rgb(92, 212, 92);
+}
+
+mark {
+  padding: 0;
+  background-color: orange;
 }

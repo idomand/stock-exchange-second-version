@@ -48,7 +48,8 @@ export default class SearchForm {
   findCompanies = async function (searchInput) {
     let searchUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${searchInput}&limit=10&exchange=NASDAQ`;
     const results = await this.fetchFunc(searchUrl);
-    this.newCallback(results);
+    const myRegEx = new RegExp(searchInput, "ig");
+    this.newCallback(results, myRegEx);
   };
 
   fetchFunc = async function (url) {

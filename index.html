@@ -48,7 +48,7 @@
     <script type="module" src="./JS/marquee.js"></script>
     <script type="module" src="./JS/sharedFunctions.js"></script>
     <script type="module" src="./JS/script.js"></script>
-    <script type="module" src="./JS/SearchREsult.js"></script>
+    <script type="module" src="./JS/SearchResult.js"></script>
     <script type="module" src="./JS/SearchForm.js"></script>
 
     <script type="module">
@@ -62,7 +62,7 @@
       const result = new SearchResult('resultDiv')
       form.onSearch
       (
-        (companies)=>{result.renderResults(companies)})
+        (companies,inputRegEx)=>{result.renderResults(companies,inputRegEx)})
       })
       
       ();
