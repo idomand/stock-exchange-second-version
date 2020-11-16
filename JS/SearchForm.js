@@ -6,7 +6,7 @@ export default class SearchForm {
     this.createElements();
     this.createEventListener();
     this.data = "nothing";
-    this.newCallback = "";
+    this.newCallback = "justNothing";
   }
 
   createElements = function () {
@@ -31,12 +31,14 @@ export default class SearchForm {
   };
 
   createEventListener = function () {
-    myButton.addEventListener("click", (e) => {
-      e.preventDefault();
-      this.freshStart();
-      toggleView(loader1, "show");
-      this.findCompanies(myInput.value);
-    });
+    myButton.addEventListener("click", this.myFunc);
+  };
+
+  myFunc = (e) => {
+    e.preventDefault();
+    this.freshStart();
+    toggleView(loader1, "show");
+    this.findCompanies(myInput.value);
   };
 
   freshStart = function () {
@@ -44,12 +46,9 @@ export default class SearchForm {
   };
 
   findCompanies = async function (searchInput) {
-    // toggleView(loader1, "show");
     let searchUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${searchInput}&limit=10&exchange=NASDAQ`;
-    // toggleView(loader1, "show");
     const results = await this.fetchFunc(searchUrl);
-    this.data = results;
-    await this.newCallback(this.data);
+    this.newCallback(results);
   };
 
   fetchFunc = async function (url) {

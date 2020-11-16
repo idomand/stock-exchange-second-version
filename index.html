@@ -22,30 +22,10 @@
   <body>
     <div class="container">
       <div class="row red">
-        <!--  -->
-        <!--  -->
         <div id="marqueeDiv"></div>
         <div class="m-5 p-5 blue shadow-lg my-page-wrapper">
           <div id="formDiv"></div>
           <div id="resultDiv"></div>
-          <!--  -->
-          <!--  -->
-          <!-- <h3>Stock Exchange Search Engine</h3>
-          <div class="mt-5 black d-flex">
-            <input id="myInput" type="text"/>
-            <button type="submit" id="myButton">search</button>
-          </div>
-          <div>
-            <div class="mt-4 align-self-center red">
-              <img
-                id="loader1"
-                class="hide"
-                src="./img/loading.png"
-                alt="loader"
-              />
-            </div>
-            <ul id="resultList" class="yellow p-0"></ul>
-          </div> -->
         </div>
       </div>
     </div>
@@ -77,13 +57,15 @@
       import SearchForm from "./JS/SearchForm.js";
 
       (async function () {
-        const myMarquee = new Marquee("marqueeDiv");
+      const myMarquee = new Marquee("marqueeDiv");
       const form = new SearchForm('formDiv')
       const result = new SearchResult('resultDiv')
-      form.onSearch((companies)=>{
-        result.renderResults(companies)
+      form.onSearch
+      (
+        (companies)=>{result.renderResults(companies)})
       })
-      })();
+      
+      ();
     </script>
   </body>
 </html>

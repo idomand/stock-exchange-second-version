@@ -1,14 +1,16 @@
+import { giveAttributes } from "./sharedFunctions.js";
+
 export default class Marquee {
   constructor(div) {
     this.div = document.getElementById(div);
     this.showMarquee();
   }
 
-  url =
+  MarqueeUrl =
     "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/stock-screener?marketCapMoreThan=1000000000&betaMoreThan=1&volumeMoreThan=10000&sector=Technology&exchange=NASDAQ&dividendMoreThan=0&limit=50&";
 
   async fetchMarquee() {
-    let result = await fetch(this.url);
+    let result = await fetch(this.MarqueeUrl);
     let resultJson = await result.json();
     return resultJson;
   }
@@ -25,20 +27,18 @@ export default class Marquee {
     data.map((element) => {
       const marqueeCell = document.createElement("div");
       marqueeLine.appendChild(marqueeCell);
-      marqueeCell.setAttribute("id", "marqueeCell");
+      giveAttributes(marqueeCell, "marqueeCell");
       const rightCell = document.createElement("div");
       const leftCell = document.createElement("div");
-      rightCell.setAttribute("class", "rightCell");
-      leftCell.setAttribute("class", "leftCell");
       marqueeCell.appendChild(rightCell);
       marqueeCell.appendChild(leftCell);
-      rightCell.innerHTML = element.symbol;
-      leftCell.innerHTML = `${element.price}$`;
+      giveAttributes(rightCell, "rightCell", "rightCell", element.symbol, 0);
+      giveAttributes(leftCell, "leftCell", "leftCell", `${element.price}$`, 0);
     });
 
     this.div.appendChild(marqueeHeader);
     marqueeHeader.appendChild(marqueeLine);
-    marqueeHeader.setAttribute("id", "marqueeHeader");
-    marqueeLine.setAttribute("id", "marqueeLine");
+    marqueeHeader.id = "marqueeHeader";
+    marqueeLine.id = "marqueeLine";
   }
 }
