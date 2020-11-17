@@ -3,11 +3,8 @@
   list-style-type: none;
 }
 
-/* #resultList {
-  list-style-type: none;
-} */
 #myInput {
-  width: 400px;
+  width: 100%;
 }
 #resultListDiv > li {
   color: blue;
@@ -99,13 +96,11 @@ li > div {
 
 #marqueeHeader {
   display: flex;
-  border: red 1px solid;
   overflow: hidden;
 }
 
 #marqueeLine {
   display: flex;
-  border: green 1px solid;
   animation: scroll 25s linear infinite;
 }
 
@@ -126,7 +121,6 @@ li > div {
   }
 }
 .rightCell {
-  border: black 1px solid;
   margin: 2px;
   border-radius: 10%;
   background-color: rgb(41, 223, 41);
@@ -134,7 +128,6 @@ li > div {
 }
 .leftCell {
   padding: 0 3px;
-  border: white 1px solid;
   margin: 2px;
   background-color: rgb(92, 212, 92);
 }

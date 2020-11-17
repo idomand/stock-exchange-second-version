@@ -22,11 +22,11 @@ export default class SearchForm {
     this.div.appendChild(loaderDiv);
     loaderDiv.appendChild(loaderImg);
     divHolder.appendChild(myButton);
-    giveAttributes(header, 0, 0, "Stock Exchange Search Engine", 0);
-    giveAttributes(divHolder, "divHolder", "mt-5 black d-flex", 0, 0);
-    giveAttributes(myInput, "myInput", 0, 0, 0);
-    giveAttributes(myButton, "myButton", 0, "search", 0);
-    giveAttributes(loaderDiv, "loaderDiv", "mt-4 align-self-center", 0, 0);
+    giveAttributes(header, 0, 0, "Stock Exchange Search Engine");
+    giveAttributes(divHolder, "divHolder", "mt-5 black d-flex");
+    giveAttributes(myInput, "myInput");
+    giveAttributes(myButton, "myButton", 0, "search");
+    giveAttributes(loaderDiv, "loaderDiv", "mt-4 align-self-center");
     giveAttributes(loaderImg, "loader1", "hide", 0, "../img/loading.png");
   };
 
@@ -36,7 +36,6 @@ export default class SearchForm {
 
   myFunc = (e) => {
     e.preventDefault();
-    this.freshStart();
     toggleView(loader1, "show");
     this.findCompanies(myInput.value);
   };
@@ -46,9 +45,16 @@ export default class SearchForm {
   };
 
   findCompanies = async function (searchInput) {
+    if (!searchInput) {
+      console.log("nothing");
+      toggleView(loader1, "hide");
+      return;
+    }
+    this.freshStart();
     let searchUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${searchInput}&limit=10&exchange=NASDAQ`;
     const results = await this.fetchFunc(searchUrl);
     const myRegEx = new RegExp(searchInput, "ig");
+    console.log("myRegEx", myRegEx);
     this.newCallback(results, myRegEx);
   };
 
