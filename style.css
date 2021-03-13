@@ -101,7 +101,7 @@ li > div {
 
 #marqueeLine {
   display: flex;
-  animation: scroll 25s linear infinite;
+  animation: scroll 45s linear infinite;
 }
 
 #marqueeCell {

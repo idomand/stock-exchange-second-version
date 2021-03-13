@@ -1,13 +1,14 @@
 import { giveAttributes } from "./sharedFunctions.js";
 
+
 export default class Marquee {
   constructor(div) {
     this.div = document.getElementById(div);
     this.showMarquee();
   }
-
   MarqueeUrl =
-    "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/stock-screener?marketCapMoreThan=1000000000&betaMoreThan=1&volumeMoreThan=10000&sector=Technology&exchange=NASDAQ&dividendMoreThan=0&limit=50&";
+    "https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=1000000000&betaMoreThan=1&volumeMoreThan=10000&sector=Technology&exchange=NASDAQ&dividendMoreThan=0&limit=100&apikey=ed93f3e229380c530b7a0e7663f86b99";
+
 
   async showMarquee() {
     const data = await this.fetchMarquee();
