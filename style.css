@@ -85,7 +85,7 @@ li > div {
 /* ====================marquee======================== */
 
 #marqueeDiv {
-  background-color: rgb(168, 235, 168);
+  /* background-color: rgb(168, 235, 168); */
   display: flex;
   width: 100%;
   margin: 20px;
@@ -104,13 +104,24 @@ li > div {
   animation: scroll 45s linear infinite;
 }
 
+#marqueeLine:hover {
+  animation-play-state: paused;
+}
+
 #marqueeCell {
   display: flex;
   padding: 2px;
-  border: black 0.5px solid;
+  border: transparent 0.5px solid;
   margin-left: 15px;
   border-radius: 5px;
 }
+
+#marqueeCell:hover {
+  border: solid black 0.5px;
+  cursor: pointer;
+  background-color: whitesmoke;
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -123,13 +134,17 @@ li > div {
 .rightCell {
   margin: 2px;
   border-radius: 10%;
-  background-color: rgb(41, 223, 41);
+  /* background-color: rgb(41, 223, 41); */
   padding: 0 3px;
+  color: green;
+  font-weight: bold;
 }
 .leftCell {
   padding: 0 3px;
   margin: 2px;
-  background-color: rgb(92, 212, 92);
+  /* background-color: rgb(92, 212, 92); */
+  color: blue;
+  text-decoration: underline;
 }
 
 mark {

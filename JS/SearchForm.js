@@ -53,6 +53,7 @@ export default class SearchForm {
     this.freshStart();
     let searchUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${searchInput}&limit=10&exchange=NASDAQ`;
     const results = await this.fetchFunc(searchUrl);
+    console.log("results :>> ", results);
     const myRegEx = new RegExp(searchInput, "ig");
     console.log("myRegEx", myRegEx);
     this.newCallback(results, myRegEx);
