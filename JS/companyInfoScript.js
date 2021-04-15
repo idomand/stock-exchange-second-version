@@ -65,8 +65,8 @@ const appendChart = async (symbol) => {
 
 const createChart = (array) => {
   let newArray = array.reverse();
-  var ctx = document.getElementById("myChart").getContext("2d");
-  var myChart = new Chart(ctx, {
+  const ctx = document.getElementById("myChart").getContext("2d");
+  const myChart = new Chart(ctx, {
     type: "line",
     data: {
       labels: newArray.map((element) => element.date),
@@ -81,6 +81,14 @@ const createChart = (array) => {
       ],
     },
     options: {
+      elements: {
+        point: {
+          radius: 0,
+        },
+      },
+      tooltips: {
+        enabled: false,
+      },
       scales: {
         yAxes: [
           {

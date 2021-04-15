@@ -2,7 +2,6 @@
   padding: 0;
   list-style-type: none;
 }
-
 #myInput {
   width: 100%;
 }
@@ -11,10 +10,6 @@
   border-bottom: 0.3px grey solid;
   margin: 3px 0;
   padding: 5px 0;
-}
-.my-page-wrapper {
-  background-color: #e8d2ff;
-  border-radius: 20px;
 }
 .hide {
   display: none;
@@ -35,6 +30,12 @@
   animation: spin linear 1s infinite;
   height: 50px;
 }
+.my-page-wrapper {
+  background-color: #e8d2ff;
+  border-radius: 20px;
+  
+}
+
 
 /* ====================companyInfo======================== */
 

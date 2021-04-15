@@ -25,7 +25,7 @@ export default class SearchForm {
     giveAttributes(header, 0, 0, "Stock Exchange Search Engine");
     giveAttributes(divHolder, "divHolder", "mt-5 black d-flex");
     giveAttributes(myInput, "myInput");
-    giveAttributes(myButton, "myButton", 0, "search");
+    giveAttributes(myButton, "myButton", "btn btn-info ", "search");
     giveAttributes(loaderDiv, "loaderDiv", "mt-4 align-self-center");
     giveAttributes(loaderImg, "loader1", "hide", 0, "../img/loading.png");
   };

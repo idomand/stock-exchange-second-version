@@ -10,6 +10,7 @@ export default class Marquee {
   async showMarquee() {
     const data = await this.fetchMarquee();
     this.createElements(data);
+    this.createMarqueeEvent();
   }
   async fetchMarquee() {
     let result = await fetch(this.MarqueeUrl);
@@ -37,4 +38,15 @@ export default class Marquee {
     marqueeHeader.id = "marqueeHeader";
     marqueeLine.id = "marqueeLine";
   }
+
+  createMarqueeEvent = () => {
+    document
+      .getElementById("rightCell")
+      .addEventListener("click", this.showCompany);
+  };
+
+  showCompany = (e) => {
+    console.log("e.target :>> ", e.target);
+    console.log("e.target.value :>> ", e.target.value);
+  };
 }
