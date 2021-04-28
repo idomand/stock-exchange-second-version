@@ -12,7 +12,7 @@ export const fetchCompanyInfo = async (symbol) => {
   const baseUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${symbol}`;
   const response = await fetch(baseUrl);
   const responseJson = await response.json();
-  let data = responseJson.profile;
+  const data = responseJson.profile;
   return data;
 };
 

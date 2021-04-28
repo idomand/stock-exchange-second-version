@@ -31,10 +31,10 @@ export default class SearchForm {
   };
 
   createEventListener = function () {
-    myButton.addEventListener("click", this.myFunc);
+    myButton.addEventListener("click", this.searchStartFunc);
   };
 
-  myFunc = (e) => {
+  searchStartFunc = (e) => {
     e.preventDefault();
     toggleView(loader1, "show");
     this.findCompanies(myInput.value);
@@ -51,7 +51,7 @@ export default class SearchForm {
       return;
     }
     this.freshStart();
-    let searchUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${searchInput}&limit=10&exchange=NASDAQ`;
+    const searchUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${searchInput}&limit=10&exchange=NASDAQ`;
     const results = await this.fetchFunc(searchUrl);
     console.log("results :>> ", results);
     const myRegEx = new RegExp(searchInput, "ig");
@@ -60,8 +60,8 @@ export default class SearchForm {
   };
 
   fetchFunc = async function (url) {
-    let response = await fetch(url);
-    let responseJson = await response.json();
+    const response = await fetch(url);
+    const responseJson = await response.json();
     return responseJson;
   };
 

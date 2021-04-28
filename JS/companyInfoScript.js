@@ -28,14 +28,14 @@ const [
   loader2,
 ] = idNames.map((element) => document.getElementById(element));
 
-let url = window.location.href;
-let index = url.indexOf("=");
-let symbol = url.slice(index + 1);
+const url = window.location.href;
+const index = url.indexOf("=");
+const symbol = url.slice(index + 1);
 
 const findCompanyInfo = async () => {
   toggleView(loader1, "show");
   toggleView(loader2, "show");
-  let result = await fetchCompanyInfo(symbol);
+  const result = await fetchCompanyInfo(symbol);
   await appendResults(result);
   await toggleView(loader1, "hide");
   await appendChart(symbol);
@@ -56,15 +56,15 @@ const appendResults = (object) => {
 };
 
 const appendChart = async (symbol) => {
-  let stockHistory = await fetch(
+  const stockHistory = await fetch(
     `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/historical-price-full/${symbol}?serietype=line`
   );
-  let stockHistoryJson = await stockHistory.json();
+  const stockHistoryJson = await stockHistory.json();
   createChart(stockHistoryJson.historical);
 };
 
 const createChart = (array) => {
-  let newArray = array.reverse();
+  const newArray = array.reverse();
   const ctx = document.getElementById("myChart").getContext("2d");
   const myChart = new Chart(ctx, {
     type: "line",

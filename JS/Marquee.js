@@ -13,8 +13,8 @@ export default class Marquee {
     this.createMarqueeEvent();
   }
   async fetchMarquee() {
-    let result = await fetch(this.MarqueeUrl);
-    let resultJson = await result.json();
+    const result = await fetch(this.MarqueeUrl);
+    const resultJson = await result.json();
     return resultJson;
   }
 

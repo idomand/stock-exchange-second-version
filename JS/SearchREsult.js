@@ -32,12 +32,12 @@ export default class SearchResult {
     newLi.appendChild(holderDiv);
     newATag.setAttribute("href", `../company.html?symbol=${element.symbol}`);
     newATag.setAttribute("target", "_blank");
-    let line = `${element.name} (${element.symbol})`;
-    let newLine = line.replace(inputRegEx, (string) => {
+    const line = `${element.name} (${element.symbol})`;
+    const newLine = line.replace(inputRegEx, (string) => {
       return "<mark>" + string + "</mark>";
     });
     newATag.innerHTML = newLine;
-    let newInfo = await fetchCompanyInfo(element.symbol);
+    const newInfo = await fetchCompanyInfo(element.symbol);
     const logo = document.createElement("img");
     holderDiv.appendChild(logo);
     holderDiv.appendChild(newATag);
