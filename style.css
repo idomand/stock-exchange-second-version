@@ -33,9 +33,7 @@
 .my-page-wrapper {
   background-color: #e8d2ff;
   border-radius: 20px;
-  
 }
-
 
 /* ====================companyInfo======================== */
 
@@ -102,7 +100,7 @@ li > div {
 
 #marqueeLine {
   display: flex;
-  animation: scroll 45s linear infinite;
+  animation: scroll 70s linear infinite;
 }
 
 #marqueeLine:hover {
