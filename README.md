@@ -1,6 +1,27 @@
-This early project was build using HTML, CSS with Bootstrap and vanilla JavaScript.
+# Stock Exchange Search Engine
+
+## Description
+One of my first projects. A search engine connected to Nasdaq data real time, capable of searching and displaying Companies current and past information.
+
+## Usage
 
 For live demo: https://ido-stock-exchange.netlify.app/
 
-The project uses an API from Financial Modeling Prep API to reactive current data from the  Nasdaq Stock Market. 
-After selecting a company, the user would be redirected to a new page to receive more information about that company.
+### to run on your own computer
+
+After cloning the repo run
+```bash
+npm install
+```
+
+after that, opening the code in your browser of choice will result in this image:
+
+
+
+from this point you are free to use the search engine.
+
+
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
