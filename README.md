@@ -9,7 +9,9 @@ For live demo: https://ido-stock-exchange.netlify.app/
 
 ### to run on your own computer
 
-After cloning the repo run
+After cloning the repo, 
+
+open the terminal and run
 ```bash
 npm install
 ```
