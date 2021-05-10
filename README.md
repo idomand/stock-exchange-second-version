@@ -16,7 +16,7 @@ npm install
 
 after that, opening the code in your browser of choice will result in this image:
 
-
+![](img/Stock_Exchange_Search_Engine.PNG)
 
 from this point you are free to use the search engine.
 
